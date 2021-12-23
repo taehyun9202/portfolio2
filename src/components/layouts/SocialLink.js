@@ -12,6 +12,7 @@ const Icons = styled.div`
   bottom: 0;
   left: 2rem;
   z-index: 3;
+  color: ${(props) => (props.clicked ? props.theme.body : props.theme.text)};
 
   & > *:not(:last-child) {
     margin: 0.5rem 0;
@@ -21,11 +22,12 @@ const Icons = styled.div`
 const Line = styled.span`
   width: 2px;
   height: 8rem;
-  background-color: ${(props) => props.theme.text};
+  background-color: ${(props) =>
+    props.clicked ? props.theme.body : props.theme.text};
 `;
-const SocialLink = () => {
+const SocialLink = ({ clicked }) => {
   return (
-    <Icons>
+    <Icons clicked={clicked}>
       <SocialIcon Icon={Github} link="https://github.com/taehyun9202" />
       <SocialIcon
         Icon={Facebook}
@@ -33,7 +35,7 @@ const SocialLink = () => {
       />
       <SocialIcon Icon={Twitter} link="https://twitter.com/?lang=en" />
       <SocialIcon Icon={YouTube} link="https://www.youtube.com/" />
-      <Line />
+      <Line clicked={clicked} />
     </Icons>
   );
 };
