@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const BlogPage = () => {
-    return (
-        <div>
-            <p>blg page
-        </div>
-    )
-}
+  return (
+    <div>
+      <p>blg page</p>
+    </div>
+  );
+};
 
-export default BlogPage
+export default BlogPage;
