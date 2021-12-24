@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
@@ -7,9 +8,14 @@ const SocialIcon = ({
   height = 25,
   fill = "currentColor",
   link,
+  delay,
 }) => {
   return (
-    <div>
+    <motion.div
+      initial={{ transform: "scale(0)" }}
+      animate={{ scale: [0, 1, 1.5, 1] }}
+      transition={{ type: "spring", duration: 1, delay: 1 + delay }}
+    >
       <a
         style={{ color: "inherit" }}
         target="_blank"
@@ -18,7 +24,7 @@ const SocialIcon = ({
       >
         <Icon width={width} height={height} fill={fill} />
       </a>
-    </div>
+    </motion.div>
   );
 };
 

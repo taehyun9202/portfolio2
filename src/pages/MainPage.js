@@ -4,7 +4,9 @@ import styled, { keyframes } from "styled-components";
 import PowerButton from "../components/buttons/PowerButton";
 import LogoText from "../components/layouts/LogoText";
 import SocialLink from "../components/layouts/SocialLink";
+import MainIntro from "../components/Main/MainIntro";
 import { YinYang } from "../data/svgs";
+import { motion } from "framer-motion";
 
 const MainContainer = styled.div`
   background: ${(props) => props.theme.body};
@@ -129,7 +131,7 @@ const MainPage = () => {
       <MainContainer>
         <Container>
           <DarkDiv clicked={clicked}></DarkDiv>
-          <LogoText />
+          <LogoText color={clicked ? "dark" : "light"} />
           <PowerButton />
           <SocialLink clicked={clicked} />
           <Center clicked={clicked}>
@@ -143,27 +145,93 @@ const MainPage = () => {
           </Center>
 
           <Contact target="_blank" href="mailto:taehyun9202@hotmail.com">
-            <h3>Say hi...</h3>
+            <motion.h2
+              initial={{
+                y: -200,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              animate={{
+                y: 0,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              Say hi...
+            </motion.h2>
           </Contact>
 
           <BlogLink to="/blog">
-            <h3>Blog</h3>
+            <motion.h2
+              initial={{
+                y: -200,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              animate={{
+                y: 0,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              Blog
+            </motion.h2>
           </BlogLink>
 
           <WorkLink clicked={clicked} to="/work">
-            <h3>Work</h3>
+            <motion.h2
+              initial={{
+                y: -200,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              animate={{
+                y: 0,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              Work
+            </motion.h2>
           </WorkLink>
 
           <BottomBar>
             <AboutLink clicked={clicked} to="/about">
-              <h3>About</h3>
+              <motion.h2
+                initial={{
+                  y: 200,
+                  transition: { type: "spring", duration: 1.5, delay: 1 },
+                }}
+                animate={{
+                  y: 0,
+                  transition: { type: "spring", duration: 1.5, delay: 1 },
+                }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                About
+              </motion.h2>
             </AboutLink>
 
             <SkillLink to="/skill">
-              <h3>My Skills</h3>
+              <motion.h2
+                initial={{
+                  y: 200,
+                  transition: { type: "spring", duration: 1.5, delay: 1 },
+                }}
+                animate={{
+                  y: 0,
+                  transition: { type: "spring", duration: 1.5, delay: 1 },
+                }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                My Skills
+              </motion.h2>
             </SkillLink>
           </BottomBar>
         </Container>
+        {clicked && <MainIntro clciked={clicked} />}
       </MainContainer>
     </div>
   );

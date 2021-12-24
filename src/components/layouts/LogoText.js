@@ -5,7 +5,7 @@ import { darkTheme, lightTheme } from "../../utils/Themes";
 const Logo = styled.h1`
   display: inline-block;
   color: ${(props) =>
-    props.color === "dark" ? lightTheme.text : darkTheme.text};
+    props.color === "dark" ? darkTheme.text : lightTheme.text};
   font-family: "Pacifico", cursive;
   position: fixed;
   left: 2rem;
@@ -13,8 +13,8 @@ const Logo = styled.h1`
   z-index: 3;
 `;
 
-const LogoText = (props) => {
-  return <Logo color={props.theme}>TylerN</Logo>;
+const LogoText = ({ color = "light" }) => {
+  return <Logo color={color}>TylerN</Logo>;
 };
 
 export default LogoText;
